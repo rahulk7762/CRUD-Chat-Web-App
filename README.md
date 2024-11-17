@@ -88,17 +88,6 @@ crud-chat-web-app/
   - `method-override`: For handling PUT and DELETE requests
   - `body-parser`: For parsing form data (via `express.urlencoded`)
 
----
-
-## Screenshots
-1. **Home Page (All Chats)**  
-   Displays a list of all chats with options to edit or delete.
-
-2. **Create New Chat**  
-   Form to add a new chat message.
-
-3. **Edit Chat**  
-   Form to update the content of an existing chat.
 
 ---
 
