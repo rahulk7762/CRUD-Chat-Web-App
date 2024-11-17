@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud chat app</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-green-600">CRUD CHAT WEB APP</h1>
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold text-gray-700">All Chats</h2>
+            <a href="/chats/new" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                New Chat
+            </a>
+        </div>
+        <div class="space-y-4">
+            <% for(let chat of chats){ %>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-lg font-semibold text-gray-800">From: <%=chat.from%></p>
+                            <p class="text-sm text-gray-600">To: <%=chat.to%></p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500"><%=chat.created_at.toString().split(" ")[4]%></p>
+                            <p class="text-xs text-gray-400"><%=chat.created_at.toString().split(" ").slice(0,4).join(" ")%></p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-100 rounded-lg p-4 mb-4">
+                        <p class="text-gray-800"><%=chat.msg%></p>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <a href="/chats/<%=chat.id%>/edit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded text-sm transition duration-300">
+                            Edit
+                        </a>
+                        <form method="POST" action="/chats/<%=chat._id%>?_method=DELETE">
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-sm transition duration-300">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-6 text-green-600">Edit Chat</h1>
+        <p class="text-gray-600 mb-4 text-center">Chat ID: <%=chat.id %></p>
+        <p class="text-gray-600 mb-4 text-center">From: <%=chat.from %> To: <%=chat.to %></p>
+        <form method="POST" action="/chats/<%=chat._id %>?_method=PUT" class="space-y-4">
+            <div>
+                <label for="msg" class="block text-sm font-medium text-gray-700">Message:</label>
+                <textarea id="msg" name="msg" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"><%=chat.msg %></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                Update Chat
+            </button>
+        </form>
+        <a href="/chats" class="block text-center mt-4 text-green-600 hover:text-green-700">Back to All Chats</a>
+    </div>
+</body>
+</html>
